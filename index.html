@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Budget Tracker Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="dashboard">
+    <header>
+      <h1>Budget Tracker</h1>
+    </header>
+
+    <section class="summary">
+      <div class="card" id="total-balance">Balance: $0</div>
+      <div class="card income">Income: $0</div>
+      <div class="card expense">Expenses: $0</div>
+    </section>
+
+    <section class="add-transaction">
+      <h2>Add Transaction</h2>
+      <form id="transaction-form">
+        <input type="text" id="description" placeholder="Description" required />
+        <input type="number" id="amount" placeholder="Amount" required />
+        <select id="type">
+          <option value="income">Income</option>
+          <option value="expense">Expense</option>
+        </select>
+        <button type="submit">Add</button>
+      </form>
+    </section>
+
+    <section class="transactions">
+      <h2>Transaction History</h2>
+      <ul id="transaction-list"></ul>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
