@@ -1,13 +1,25 @@
-const messages = [
-  "Keep pushing forward!",
-  "You're doing great.",
-  "Today is a new opportunity.",
-  "Never stop learning.",
-  "Small steps lead to big progress."
-];
+const form = document.getElementById("transaction-form");
+const list = document.getElementById("transaction-list");
+const balance = document.getElementById("total-balance");
+const income = document.getElementById("income");
+const expense = document.getElementById("expense");
 
-document.getElementById("btn-random-message").addEventListener("click", () => {
-  const randomIndex = Math.floor(Math.random() * messages.length);
-  const outputCard = document.getElementById("card-output");
-  outputCard.querySelector("p").textContent = messages[randomIndex];
+let transactions = [];
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const description = form.querySelector("#description").value.trim();
+  const amount = parseFloat(form.querySelector("#amount").value);
+  const type = form.querySelector("#type").value;
+
+  if (description === "" || isNaN(amount) || amount <= 0) {
+    alert("Please enter a valid transaction");
+    return;
+  }
+  transactions.push({ amount, description, type });
+
+  render();
+
+  form.reset();
 });
